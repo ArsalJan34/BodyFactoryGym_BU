@@ -382,29 +382,6 @@ header {
   transform: translateY(-5px);
 }
 
-/* Responsive: 2 per row on mobile */
-@media (max-width: 768px) {
-  .service-list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .service {
-    flex: 1 1 45%;
-    margin-bottom: 1rem;
-  }
-
-  .services-inner {
-    aspect-ratio: 4 / 3;
-  }
-}
-
-@media (max-width: 576px) {
-  .services-inner {
-    width: 95%;
-    aspect-ratio: 1 / 1;
-  }
-}
 .why-join-section {
   text-align: center;
   padding: 80px 20px;
@@ -852,7 +829,29 @@ header {
     padding: 4px;
   }
 }
+/* Services */
+@media (max-width: 768px) {
+  .service-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
+  .service {
+    flex: 1 1 45%;
+    margin-bottom: 1rem;
+  }
+
+  .services-inner {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-inner {
+    width: 95%;
+    aspect-ratio: 1 / 1;
+  }
+}
 
 @media (max-width: 1200px) {
   .navbar a {
