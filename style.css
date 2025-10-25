@@ -381,103 +381,114 @@ header {
     font-size: 16px;
   }
 } */
- .services {
-   background: #000;
-   color: #fff;
-   text-align: center;
-   padding: 100px 8%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
+.services {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 100px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
- .services-inner {
-   position: relative;
-   background: url('./images/young-fitness-man-studio_7502-5008.jpg') no-repeat center center/cover;
-   width: 85%;
-   max-width: 950px;
-   aspect-ratio: 16 / 9;
-   border: 6px solid orangered;
-   border-radius: 20px;
-   box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   overflow: hidden;
-   padding: 3vw;
-   /* ✅ padding scales with viewport width */
- }
+.services-inner {
+  background: url('./images/young-fitness-man-studio_7502-5008.jpg') no-repeat center center/cover;
+  width: 90%;
+  max-width: 950px;
+  aspect-ratio: 16 / 9;
+  border: 6px solid orangered;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 2vw;
+}
 
- .services-inner::before {
-   content: "";
-   position: absolute;
-   inset: 0;
-   background: rgba(0, 0, 0, 0.45);
-   border-radius: 20px;
- }
+.services-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+}
 
- .services-inner h2 {
-   position: relative;
-   z-index: 1;
-   font-size: clamp(1.5rem, 3vw, 2.2rem);
-   /* ✅ font scales */
-   color: #fff;
-   margin-bottom: 2vw;
-   text-transform: uppercase;
-   letter-spacing: 2px;
- }
+.section-title {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5vw;
+}
 
- .services-wrapper {
-   position: relative;
-   z-index: 1;
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 2vw;
-   /* ✅ responsive spacing */
-   width: 100%;
- }
+.services-lists {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  width: 100%;
+}
 
- .service {
-   text-align: center;
-   transition: transform 0.3s ease;
- }
+.service-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
- .service i {
-   font-size: clamp(20px, 3vw, 38px);
-   /* ✅ icons resize smoothly */
-   color: orangered;
-   margin-bottom: 0.5vw;
- }
+.service {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
 
- .service h3 {
-   font-size: clamp(0.7rem, 1.5vw, 1rem);
-   /* ✅ text resizes */
-   text-transform: uppercase;
-   color: #fff;
- }
+.service i {
+  font-size: clamp(20px, 3vw, 40px);
+  color: orangered;
+  margin-bottom: 0.5vw;
+}
 
- /* ✅ Responsive grid breakpoints */
- @media (max-width: 992px) {
-   .services-inner {
-     aspect-ratio: 4 / 3;
-   }
+.service h3 {
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  text-transform: uppercase;
+  color: #fff;
+}
 
-   .services-wrapper {
-     grid-template-columns: repeat(2, 1fr);
-   }
- }
+/* Hover effect */
+.service:hover {
+  transform: translateY(-5px);
+}
 
- @media (max-width: 576px) {
-   .services-inner {
-     aspect-ratio: 1 / 1;
-     width: 95%;
-   }
+/* Responsive: 2 per row on mobile */
+@media (max-width: 768px) {
+  .service-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-   .services-wrapper {
-     grid-template-columns: repeat(2, 1fr);
-   }
- }
+  .service {
+    flex: 1 1 45%;
+    margin-bottom: 1rem;
+  }
+
+  .services-inner {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-inner {
+    width: 95%;
+    aspect-ratio: 1 / 1;
+  }
+}
 .why-join-section {
   text-align: center;
   padding: 80px 20px;
