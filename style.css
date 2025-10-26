@@ -260,21 +260,23 @@ header {
   font-size: 23px;
   margin-left: 10px;
   color: orangered;
-}
-.section-title {
+}.section-title {
   position: relative;
   z-index: 1;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: #fff;
+  font-size: 40px;
+  /* replaced clamp */
+  color: orangered;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 2.5rem;
-  color: orangered;
   margin-bottom: 50px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2) 100%);
 }
+
 .services {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat, url('./images/carbonfiberbg.png') repeat;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat,
+    url('./images/carbonfiberbg.png') repeat;
   background-blend-mode: overlay;
   color: #fff;
   text-align: center;
@@ -288,7 +290,6 @@ header {
   background: url('./images/young-fitness-man-studio_7502-5008.jpg') no-repeat center center/cover;
   width: 90%;
   max-width: 950px;
-  aspect-ratio: 16 / 9;
   border: 6px solid orangered;
   border-radius: 20px;
   display: flex;
@@ -297,7 +298,9 @@ header {
   align-items: center;
   overflow: hidden;
   position: relative;
-  padding: 2vw;
+  padding: 40px;
+  aspect-ratio: 16 / 9;
+  /* You can remove this if it causes overflow */
 }
 
 .services-inner::before {
@@ -308,17 +311,13 @@ header {
   border-radius: 20px;
 }
 
-
-
 .service-title {
   position: relative;
   z-index: 1;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: #fff;
+  font-size: 40px;
+  color: orangered;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 2.5rem;
-  color: orangered;
   margin-bottom: 50px;
 }
 
@@ -327,7 +326,7 @@ header {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5vw;
+  gap: 25px;
   width: 100%;
 }
 
@@ -346,17 +345,20 @@ header {
 }
 
 .service i {
-  font-size: clamp(20px, 3vw, 40px);
+  font-size: 36px;
   color: orangered;
-  margin-bottom: 0.5vw;
+  margin-bottom: 10px;
 }
 
 .service h3 {
-  font-size: clamp(0.7rem, 1.5vw, 1rem);
+  font-size: 16px;
   text-transform: uppercase;
   color: #fff;
 }
 
+.service:hover {
+  transform: translateY(-5px);
+}
 .why-join-section {
   text-align: center;
   padding: 80px 20px;
