@@ -420,6 +420,7 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2
       letter-spacing: 2px;
       color: orangered;
       margin-bottom: 50px;
+        font-size: 2.5rem;
 }
 .why-join-wrapper {
   display: grid;
