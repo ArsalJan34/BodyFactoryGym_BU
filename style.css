@@ -947,6 +947,10 @@ header {
   .service h3 {
     font-size: 14px;
   }
+    .service-title{
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
 }
 
 @media (max-width: 600px) {
