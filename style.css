@@ -10,11 +10,17 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
-  background: black;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url('./images/carbonfiberbg.png') repeat center center;
+  background-size: 600px 600px;
+  color: #fff;
+  font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
-
 header {
   background: transparent;
   display: flex;
@@ -297,8 +303,13 @@ header {
   margin-left: 10px;
   color: orangered;
 }
+
 .services {
-  background: #000;
+  background:
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat,
+      url('./images/carbonfiberbg.png') repeat;
+    background-blend-mode: overlay;
   color: #fff;
   text-align: center;
   padding: 100px 8%;
@@ -314,7 +325,7 @@ header {
   aspect-ratio: 16 / 9;
   border: 6px solid orangered;
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -340,6 +351,8 @@ header {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1.5vw;
+background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2) 100%);
+
 }
 
 .services-lists {
@@ -385,7 +398,11 @@ header {
 .why-join-section {
   text-align: center;
   padding: 80px 20px;
-  background: #000;
+  background:
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)),
+      url('./images/gym-texture-dark.jpg') center/cover no-repeat,
+      url('./images/carbonfiberbg.png') repeat;
+    background-blend-mode: multiply;
   color: white;
 }
 
@@ -394,7 +411,16 @@ header {
   color: orangered;
   margin-bottom: 50px;
 }
-
+.why-title{
+    position: relative;
+      z-index: 1;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: orangered;
+      margin-bottom: 50px;
+}
 .why-join-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -471,10 +497,14 @@ header {
 .fees-section,
 .packages-section,
 .timing-section {
-  background: #000;
+
   color: #f5f5f5;
   padding: 80px 8%;
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+        url('./images/carbonfiberbg.png') repeat;
+      background-size: 600px 600px;
 }
 
 .fees-section h2,
@@ -494,7 +524,7 @@ header {
   overflow-x: auto;
   border-radius: 12px;
   padding: 10px;
-  background: linear-gradient(180deg, rgba(255, 69, 0, 0.08), rgba(255, 69, 0, 0.03));
+
 }
 
 .fees-table,
@@ -505,8 +535,7 @@ header {
   border-collapse: collapse;
   text-align: left;
   background: #0f0f0f;
-  border: 1px solid rgba(255, 69, 0, 0.25);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+
 }
 
 .fees-table thead th,
@@ -829,7 +858,7 @@ header {
     padding: 4px;
   }
 }
-/* Services */
+
 @media (max-width: 768px) {
   .service-list {
     flex-wrap: wrap;
