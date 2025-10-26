@@ -271,7 +271,17 @@ header {
   margin-bottom: 50px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2) 100%);
 }
+.service-title{
+    position: relative;
+      z-index: 1;
+      font-size: 40px;
+      /* replaced clamp */
+      color: orangered;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
 
+}
 .services {
   background:
     linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
@@ -290,6 +300,8 @@ header {
   background: url('./images/young-fitness-man-studio_7502-5008.jpg') no-repeat center center/cover;
   width: 90%;
   max-width: 950px;
+  height: 520px;
+  /* rectangle instead of square */
   border: 6px solid orangered;
   border-radius: 20px;
   display: flex;
@@ -298,9 +310,7 @@ header {
   align-items: center;
   overflow: hidden;
   position: relative;
-  padding: 40px;
-  aspect-ratio: 16 / 9;
-  /* You can remove this if it causes overflow */
+  padding: 30px;
 }
 
 .services-inner::before {
@@ -311,15 +321,6 @@ header {
   border-radius: 20px;
 }
 
-.service-title {
-  position: relative;
-  z-index: 1;
-  font-size: 40px;
-  color: orangered;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 50px;
-}
 
 .services-lists {
   position: relative;
@@ -332,33 +333,41 @@ header {
 
 .service-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .service {
   text-align: center;
   transition: transform 0.3s ease;
+  flex: 1 1 150px;
+  max-width: 160px;
 }
 
 .service i {
   font-size: 36px;
   color: orangered;
   margin-bottom: 10px;
+  display: block;
 }
 
 .service h3 {
   font-size: 16px;
-  text-transform: uppercase;
   color: #fff;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .service:hover {
   transform: translateY(-5px);
 }
+
+
 .why-join-section {
   text-align: center;
   padding: 80px 20px;
@@ -917,28 +926,54 @@ header {
   transform: translateY(-3px);
 }
 
-/* Contact Styles */
+/* Contact Styles Ended here*/
+/* =======================
+   RESPONSIVENESS
+======================= */
 @media (max-width: 992px) {
-  .services-wrapper {
-    grid-template-columns: repeat(3, 1fr);
+  .services-inner {
+    height: 450px;
+    padding: 25px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .service i {
+    font-size: 30px;
+  }
+
+  .service h3 {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 768px) {
-  .services-wrapper {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 600px) {
+  .services-inner {
+    height: 420px;
+    padding: 20px;
   }
-}
 
-@media (max-width: 576px) {
-  .services-wrapper {
-    grid-template-columns: repeat(1, 1fr);
+  .service-list {
+    gap: 20px;
   }
-}
 
-@media (max-width: 480px) {
-  .services-wrapper {
-    grid-template-columns: repeat(1, 1fr);
+  .service {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+
+  .service i {
+    font-size: 28px;
+  }
+
+  .service h3 {
+    font-size: 13px;
+  }
+
+  .section-title {
+    font-size: 26px;
   }
 }
 
