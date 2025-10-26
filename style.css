@@ -724,52 +724,88 @@ header {
 /* -----------------------
    FOOTER
    ----------------------- */
-.footer {
-  padding: 10px 20px;
+/* =========================================================
+   RESPONSIVE FOOTERS
+========================================================= */
+
+/* Location Footer */
+.location-footer {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('images/carbonfiberbg.png') repeat;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
   border-top: 2px solid orangered;
-  background: transparent;
-  width: 100%;
+  flex-wrap: wrap;
+}
+
+.location-content,
+.contact-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.location-footer i {
+  color: orangered;
+  font-size: 22px;
+}
+
+/* Main Footer */
+.footer {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('images/carbonfiberbg.png') repeat;
+  color: #fff;
+  text-align: center;
+  padding: 40px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid orangered;
 }
 
 .footer-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+.footer-content .footer-links,
+.footer-content .socials {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-content a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: orangered;
+}
+
+.footer-content img {
+  width: 110px;
+  height: auto;
 }
 
 .copyright {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  padding: 10px 5px;
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.6;
 }
 
-.copyright strong {
-  color: rgb(129, 124, 124);
-}
-
-.footer-links {
-  display: flex;
-  gap: 30px;
-}
-
-.footer-links a {
-  color: white;
-  font-weight: 500;
-  font-size: 18px;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: color .25s ease;
-}
-
-.footer-links a:hover {
-  color: orangered;
-  border-bottom: 0.5px solid orangered;
-}
 
 /* -----------------------
    PRIVACY HERO & PRIVACY SECTION
@@ -1189,37 +1225,50 @@ header {
   }
 }
 
+/* =========================================================
+   RESPONSIVE (Mobile) VIEW
+========================================================= */
 @media (max-width: 768px) {
-  .footer {
+
+  /* Location Footer Responsive */
+  .location-footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 25px 5%;
+    gap: 12px;
   }
 
-  .footer-content {
+  .location-content,
+  .contact-content {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-  }
-
-  .footer-links {
-    flex-direction: column;
     gap: 10px;
   }
 
-  .footer-socials {
+  /* Main Footer Responsive */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .footer-content .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-content .socials {
     justify-content: center;
-    margin-top: 10px;
   }
 
-  .footer-logo img {
-    width: 100px;
+  .footer-content img {
+    width: 90px;
   }
 
-  .footer-bottom {
-    margin-top: 15px;
+  .copyright {
     font-size: 12px;
+    text-align: center;
   }
 }
 /* End of file */
