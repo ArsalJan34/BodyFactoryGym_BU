@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | The Body Factory</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="./images/green logo.png" alt="The Body Factory Logo">
+    </div>
+
+    <nav class="sidebar">
+      <a href="#" onclick="hideSidebar()"><i class='bx bx-x'></i></a>
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./privacypolicy.html">Privacy Policy</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+
+    <nav class="navbar">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./privacypolicy.html">Privacy Policy</a>
+      <a href="./contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="social-media">
+      <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+      <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+      <a href="#"><i class='bx bxl-twitter'></i></a>
+    </div>
+
+    <div class="menu-icon" onclick="showSidebar()">
+      <i class='bx bx-menu'></i>
+    </div>
+  </header>
+
+<section class="contact-section" id="contact">
+<form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+  <input type="hidden" name="access_key" value="8e8f53f5-6563-4e85-ab52-d8e95dce82d6">
+
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">Send Message</button>
+</form>
+
+  </div>
+</section>
+
+
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 <strong>The Body Factory Gym</strong>. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./privacypolicy.html">Privacy Policy</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showSidebar() {
+      document.querySelector('.sidebar').classList.add('show');
+    }
+    function hideSidebar() {
+      document.querySelector('.sidebar').classList.remove('show');
+    }
+
+        document.querySelector('.contact-form').addEventListener('submit', async function (e) {
+          e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+
+        const response = await fetch(form.action, {
+          method: 'POST',
+        body: data
+  });
+
+        const result = await response.json();
+        if (result.success) {
+          alert('✅ Thank you! Your message has been sent successfully.');
+        form.reset();
+  } else {
+          alert('❌ Something went wrong. Please try again.');
+  }
+});
+
+
+  </script>
+</body>
+
+</html>
