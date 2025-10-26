@@ -239,11 +239,6 @@ header {
   opacity: 1;
 }
 
-.watch img {
-  width: 650px;
-  max-width: 100%;
-  height: auto;
-}
 
 .logo2 {
   color: orangered;
@@ -981,7 +976,16 @@ header {
     font-size: 26px;
   }
 }
-
+@media (max-width: 768px) {
+  .home {
+    background-position: 90% center;
+    /* shift more to right */
+    background-size: cover;
+    justify-content: center;
+    /* optional: center text if you prefer */
+    padding: 80px 6% 40px;
+  }
+}
 @media (max-width: 1280px) {
 
   .fees-section,
