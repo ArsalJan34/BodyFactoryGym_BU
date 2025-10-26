@@ -14,7 +14,7 @@ function hideSidebar() {
   sidebar.classList.remove("show");
 }
 function sendWhatsApp(planName) {
-  const phoneNumber = "923420352902"; // Replace with your WhatsApp number (no + sign)
+  const phoneNumber = "923420352902";
   const message = `Hello! I’m interested in the ${planName}. Please provide more details.`;
   const encodedMessage = encodeURIComponent(message);
   const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
