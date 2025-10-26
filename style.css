@@ -1195,7 +1195,11 @@ header {
     text-align: center;
     padding: 25px 5%;
   }
-
+.footer-content{
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
   .footer-links {
     flex-direction: column;
     gap: 10px;
