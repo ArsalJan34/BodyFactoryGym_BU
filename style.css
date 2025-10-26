@@ -782,6 +782,7 @@ header {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
+  color: orangered;
 }
 
 .footer-content a {
@@ -969,10 +970,7 @@ header {
   transform: translateY(-3px);
 }
 
-/* -----------------------
-   RESPONSIVE MEDIA QUERIES (consolidated & ordered)
-   Breakpoints used: 1280, 1200, 1024, 992, 900, 768, 600, 576, 480
-   ----------------------- */
+/* Responsivness */
 
 /* Large desktops and down adjustments */
 @media (max-width: 1280px) {
