@@ -1,35 +1,61 @@
-* {
+
+
+/* -----------------------
+   RESET & GLOBAL STYLES
+   ----------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* consistent box model */
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
+/* Base body styles and background */
 body {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-    url('./images/carbonfiberbg.png') repeat center center;
-  background-size: 600px 600px;
-  color: #fff;
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('./images/carbonfiberbg.png') repeat center center;
+  background-size: 600px 600px;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
+
+/* Base utility classes used throughout */
+.hidden {
+  display: none !important;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -----------------------
+   HEADER: Logo, Navbar, Menu Icon
+   ----------------------- */
 header {
-  background: transparent;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: transparent;
   border-bottom: 2px solid orangered;
-  width: 100%;
+  padding: 10px 4%;
 }
 
+/* Logo container */
 .logo {
   display: flex;
   align-items: center;
@@ -43,78 +69,33 @@ header {
   width: 150px;
 }
 
+.logo2 {
+  color: orangered;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Navbar links */
 .navbar {
   display: flex;
   gap: 30px;
 }
 
 .navbar a {
-  color: white;
+  color: #fff;
   font-size: 20px;
   font-weight: 500;
-  transition: .5s ease;
-  border-bottom: 2px solid transparent;
   padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .25s ease, border-bottom .25s ease;
 }
 
 .navbar a:hover {
+  color: orangered;
   border-bottom: 0.5px solid orangered;
-  color: orangered;
 }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  height: 100vh;
-  width: 250px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
-    url('./images/carbonfiberbg.png') repeat center center;
-  background-size: cover;
-  backdrop-filter: blur(10px);
-  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 25px;
-  z-index: 999;
-  transition: right 0.4s ease;
-}
-
-.sidebar.show {
-  right: 0;
-}
-
-.sidebar a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  margin: 18px 0;
-  display: block;
-  transition: .5s ease;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 2px;
-}
-
-.sidebar a:hover {
-  border-bottom: 0.5px solid orangered;
-  color: orangered;
-}
-
-.sidebar .bx-x {
-  color: white;
-  font-size: 30px;
-  margin-bottom: 15px;
-  transition: .5s ease;
-}
-
-.sidebar .bx-x:hover {
-  border-bottom: none;
-  color: orangered;
-}
-
+/* Menu icon shown on small screens */
 .menu-icon {
   display: none;
   cursor: pointer;
@@ -126,6 +107,61 @@ header {
   margin-right: 20px;
 }
 
+/* -----------------------
+   SIDEBAR (slide-in panel)
+   ----------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  /* hidden by default */
+  width: 250px;
+  height: 100vh;
+  padding: 25px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: right 0.4s ease;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('./images/carbonfiberbg.png') repeat center center;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  margin: 18px 0;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .25s ease;
+}
+
+.sidebar a:hover {
+  color: orangered;
+  border-bottom: 0.5px solid orangered;
+}
+
+.sidebar .bx-x {
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.sidebar .bx-x:hover {
+  color: orangered;
+}
+
+/* -----------------------
+   SOCIAL MEDIA ICONS
+   ----------------------- */
 .social-media {
   display: flex;
   justify-content: space-between;
@@ -136,15 +172,13 @@ header {
 
 .social-media a {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  transform: rotate(45deg);
+  justify-content: center;
   width: 38px;
   height: 38px;
-  background: transparent;
+  transform: rotate(45deg);
   border: 2px solid transparent;
-  text-decoration: none;
-  transition: .4s;
+  transition: border-color .4s ease;
 }
 
 .social-media a:hover {
@@ -152,23 +186,38 @@ header {
 }
 
 .social-media a i {
-  font-size: 22px;
-  color: white;
   transform: rotate(-45deg);
+  font-size: 22px;
+  color: #fff;
 }
 
+/* Small social group used elsewhere */
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a i {
+  font-size: 23px;
+  margin-left: 10px;
+  color: orangered;
+}
+
+/* -----------------------
+   HERO / HOME SECTION
+   ----------------------- */
 .home {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./images/cbumbg.png") no-repeat center center;
-  background-size: cover;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 100px 8% 50px;
+  gap: 30px;
   position: relative;
   overflow: hidden;
-  gap: 30px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/cbumbg.png') no-repeat center center;
+  background-size: cover;
 }
 
 .home-content {
@@ -199,20 +248,21 @@ header {
   line-height: 1.6;
 }
 
+/* Primary CTA button */
 .btn {
   position: relative;
   display: inline-block;
   padding: 12px 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  overflow: visible;
   background: transparent;
   border: 2px solid #ff4500;
-  border-radius: 6px;
   color: #fff;
-  font-size: 17px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  transition: 0.3s ease;
-  cursor: pointer;
-  overflow: visible;
+  transition: all .3s ease;
   box-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
 }
 
@@ -223,7 +273,7 @@ header {
   top: 50%;
   transform: translateY(-50%) scale(0);
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all .4s ease;
 }
 
 .btn:hover {
@@ -239,140 +289,118 @@ header {
   opacity: 1;
 }
 
-
-.logo2 {
-  color: orangered;
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-.socials {
-  display: flex;
-  gap: 10px;
-}
-
-.socials a i {
-  font-size: 23px;
-  margin-left: 10px;
-  color: orangered;
-}.section-title {
+/* -----------------------
+   SECTION TITLES
+   ----------------------- */
+.section-title {
   position: relative;
   z-index: 1;
   font-size: 40px;
-  /* replaced clamp */
   color: orangered;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 50px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2) 100%);
 }
+
+/* -----------------------
+   SERVICES SECTION
+   ----------------------- */
 .service-title{
     position: relative;
       z-index: 1;
+      text-align: center;
       font-size: 40px;
-      /* replaced clamp */
       color: orangered;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 50px;
-      margin-top: 20px;
-
+    margin: 50px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2) 100%);
 }
+
 .services {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat,
-    url('./images/carbonfiberbg.png') repeat;
   background-blend-mode: overlay;
   color: #fff;
   text-align: center;
-  padding: 100px 8%;
+  padding: 80px 8%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
 .services-inner {
-  background: url('./images/young-fitness-man-studio_7502-5008.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat;
+
+  border: 3px solid orangered;
+  border-radius: 20px;
   width: 90%;
   max-width: 950px;
-  height: 520px;
-  /* rectangle instead of square */
-  border: 6px solid orangered;
-  border-radius: 20px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   position: relative;
-  padding: 30px;
-}
-
-.services-inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  border-radius: 20px;
+  overflow: hidden;
 }
 
 
 .services-lists {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 25px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
+
 
 .service-list {
   display: flex;
   justify-content: center;
   align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   gap: 40px;
   flex-wrap: wrap;
 }
 
+
 .service {
-  text-align: center;
-  transition: transform 0.3s ease;
   flex: 1 1 150px;
   max-width: 160px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
+
 
 .service i {
   font-size: 36px;
   color: orangered;
   margin-bottom: 10px;
-  display: block;
 }
+
 
 .service h3 {
   font-size: 16px;
   color: #fff;
   text-transform: uppercase;
-  margin: 0;
 }
+
 
 .service:hover {
   transform: translateY(-5px);
 }
 
-
+/* -----------------------
+   WHY JOIN SECTION
+   ----------------------- */
 .why-join-section {
-  text-align: center;
   padding: 80px 20px;
-  background:
-      linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)),
-      url('./images/gym-texture-dark.jpg') center/cover no-repeat,
-      url('./images/bgtexture2.png') repeat;
-    background-blend-mode: multiply;
+  text-align: center;
   color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)), url('./images/gym-texture-dark.jpg') center/cover no-repeat, url('./images/bgtexture2.png') repeat;
+  background-blend-mode: multiply;
 }
 
 .why-join-section .section-title {
@@ -380,17 +408,15 @@ header {
   color: orangered;
   margin-bottom: 50px;
 }
-.why-title{
-    position: relative;
-      z-index: 1;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: orangered;
-      margin-bottom: 50px;
-        font-size: 2.5rem;
+
+.why-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: orangered;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
 }
+
 .why-join-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -400,13 +426,13 @@ header {
 
 .join-box {
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid orangered;
   border-radius: 20px;
   padding: 80px 5px;
   overflow: hidden;
-  transition: 0.5s ease;
+  transition: all .5s ease;
   z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid orangered;
 }
 
 .join-box h3 {
@@ -427,12 +453,22 @@ header {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: 0.5s ease;
+  transition: opacity .5s ease, transform .5s ease;
   z-index: -1;
   border-radius: 20px;
 }
 
+.join-box:hover {
+  transform: translateY(-8px);
+  border-color: white;
+}
 
+.join-box:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Background images for specific join boxes */
 .join-box.equipment::before {
   background-image: url('./images/modern-equipment.avif');
 }
@@ -449,32 +485,18 @@ header {
   background-image: url('./images/premium-facilities.webp');
 }
 
-/* Hover effect */
-.join-box:hover::before {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.join-box:hover {
-  border-color: white;
-  transform: translateY(-8px);
-}
-
-
-
-
-
+/* -----------------------
+   FEES, PACKAGES & TIMING SECTIONS
+   - Table wrappers and table styles (consistent)
+   ----------------------- */
 .fees-section,
 .packages-section,
 .timing-section {
-
-  color: #f5f5f5;
   padding: 80px 8%;
+  color: #f5f5f5;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('./images/carbonfiberbg.png') repeat;
+  background-size: 600px 600px;
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-        url('./images/carbonfiberbg.png') repeat;
-      background-size: 600px 600px;
 }
 
 .fees-section h2,
@@ -488,15 +510,16 @@ header {
   letter-spacing: 1px;
 }
 
+/* Table containers that allow horizontal scroll on small screens */
 .fees-table-wrap,
 .packages-table-wrap,
 .time-table-wrap {
   overflow-x: auto;
   border-radius: 12px;
   padding: 10px;
-
 }
 
+/* Common table styling */
 .fees-table,
 .packages-table,
 .time-table {
@@ -505,7 +528,6 @@ header {
   border-collapse: collapse;
   text-align: left;
   background: #0f0f0f;
-
 }
 
 .fees-table thead th,
@@ -531,6 +553,14 @@ header {
   color: #e0e0e0;
   border: 1px solid rgba(255, 255, 255, 0.5);
   text-align: center;
+  vertical-align: middle;
+}
+
+.fees-table tbody tr:hover,
+.time-table tbody tr:hover,
+.packages-table tbody tr:hover {
+  background: rgba(255, 69, 0, 0.07);
+  transition: background .3s ease;
 }
 
 .plan-name {
@@ -538,58 +568,40 @@ header {
   color: #ffebd6;
   text-transform: capitalize;
   background: orangered;
-  border: gray 2px solid;
-}
-
-.plan-name2 h2 {
-  font-size: 15px;
+  border: 2px solid gray;
+  text-align: center;
 }
 
 .price {
   font-weight: 800;
   color: #ffae00;
   font-size: 17px;
+  text-align: center;
 }
 
 .plan-name2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   font-weight: 700;
   color: #ffebd6;
   text-transform: capitalize;
   background: orangered;
-  border: gray 2px solid;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  border: 2px solid gray;
 }
 
-
-.fees-table tbody tr:hover,
-.time-table tbody tr:hover,
-.packages-table tbody tr:hover {
-  background: rgba(255, 69, 0, 0.07);
-  transition: 0.3s ease;
-}
-
-.fees-table td,
-.time-table td,
-.packages-table td {
-  padding: 18px 22px;
-  vertical-align: middle;
-}
-
-.plan-name,
-.price {
-  text-align: center;
-}
-
+/* -----------------------
+   LOCATION / CONTACT (Footer region components)
+   ----------------------- */
 .location-footer {
-  border-top: orangered 2px solid;
+  border-top: 2px solid orangered;
   background: black;
   color: white;
   padding: 10px 10px;
-  text-align: center;
   display: flex;
   justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .location-content {
@@ -602,27 +614,26 @@ header {
 
 .map {
   width: 50px;
-  aspect-ratio: 1 / 1;
-  /* keeps it square */
+  aspect-ratio: 1/1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   background: rgba(255, 69, 0, 0.1);
   border: 2px solid orangered;
-  border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.map:hover {
-  background: orangered;
-  transform: scale(1.1);
+  transition: transform .3s ease, background .3s ease;
 }
 
 .map i {
   font-size: 25px;
   color: orangered;
-  transition: 0.3s ease;
+  transition: color .3s ease;
+}
+
+.map:hover {
+  background: orangered;
+  transform: scale(1.1);
 }
 
 .map:hover i {
@@ -637,21 +648,22 @@ header {
 
 .contact-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
 .phone {
+  display: inline-flex;
+  align-items: center;
   gap: 10px;
   background: rgba(255, 69, 0, 0.1);
   border: 2px solid orangered;
   border-radius: 50px;
   padding: 10px 20px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform .3s ease, background .3s ease;
   color: white;
   font-size: 16px;
 }
@@ -659,16 +671,11 @@ header {
 .phone i {
   color: orangered;
   font-size: 20px;
-  transition: 0.3s ease;
 }
 
 .phone:hover {
   background: orangered;
   transform: scale(1.05);
-}
-
-.phone:hover i {
-  color: white;
 }
 
 .whatsapp-btn {
@@ -679,32 +686,33 @@ header {
   padding: 8px 16px;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform .3s ease;
 }
 
 .whatsapp-btn:hover {
-  background: orangered;
   transform: scale(1.05);
 }
 
+/* -----------------------
+   BACK TO TOP BUTTON
+   ----------------------- */
 #backToTop {
   position: fixed;
   right: 25px;
   bottom: 50%;
   transform: translateY(50%);
-  background-color: transparent;
-  border: 1px solid orangered;
-  color: #fff;
-  border-radius: 50%;
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  border: 1px solid orangered;
+  background: transparent;
+  color: #fff;
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
-  transition: all 0.3s ease;
+  transition: all .3s ease;
   z-index: 999;
   display: none;
-
 }
 
 #backToTop:hover {
@@ -712,6 +720,10 @@ header {
   box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
   transform: translateY(50%) scale(1.1);
 }
+
+/* -----------------------
+   FOOTER
+   ----------------------- */
 .footer {
   padding: 10px 20px;
   border-top: 2px solid orangered;
@@ -723,16 +735,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .copyright {
-  padding: 10px 5px;
-  color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  color: white;
+  padding: 10px 5px;
 }
 
 .copyright strong {
@@ -748,28 +761,28 @@ header {
   color: white;
   font-weight: 500;
   font-size: 18px;
-  transition: .5s ease;
-  border-bottom: 2px solid transparent;
   padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .25s ease;
 }
 
 .footer-links a:hover {
-  border-bottom: 0.5px solid orangered;
   color: orangered;
+  border-bottom: 0.5px solid orangered;
 }
-/* Privacy Policy Styles */
-/* ---------- Privacy Policy Page ---------- */
 
+/* -----------------------
+   PRIVACY HERO & PRIVACY SECTION
+   ----------------------- */
 .privacy-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('./images/gym-texture-bg.jpg') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
   padding: 140px 8% 100px;
+  text-align: center;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/gym-texture-bg.jpg') no-repeat center center/cover;
 }
 
 .privacy-hero h1 {
@@ -792,10 +805,9 @@ header {
 }
 
 .privacy-section {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(255, 69, 0, 0.1)),
-    url('./images/carbonfiberbg.png') repeat;
-  color: #fff;
   padding: 100px 8%;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(255, 69, 0, 0.1)), url('./images/carbonfiberbg.png') repeat;
 }
 
 .privacy-section .container {
@@ -819,9 +831,9 @@ header {
 
 .privacy-section p,
 .privacy-section li {
+  color: #eaeaea;
   font-size: 16px;
   line-height: 1.8;
-  color: #eaeaea;
 }
 
 .privacy-section ul {
@@ -837,34 +849,33 @@ header {
 .email-link:hover {
   color: #ffae00;
 }
-/* Privacy Policy Styles */
-/* ---------- Contact Page ---------- */
-/* CONTACT SECTION */
 
+/* -----------------------
+   CONTACT SECTION (form styles)
+   ----------------------- */
 .contact-section {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 69, 0, 0.15)),
-    url('./images/carbonfiberbg.png') repeat;
-  color: white;
   padding: 100px 8%;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 69, 0, 0.15)), url('./images/carbonfiberbg.png') repeat;
 }
 
 .contact-container {
+  width: 100%;
+  max-width: 650px;
+  padding: 40px;
+  border-radius: 15px;
   background: rgba(0, 0, 0, 0.6);
   border: 2px solid orangered;
-  border-radius: 15px;
-  max-width: 650px;
-  width: 100%;
-  padding: 40px;
   box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
 }
 
 .contact-description {
-  margin-bottom: 30px;
   color: #ddd;
+  margin-bottom: 30px;
   font-size: 16px;
 }
 
@@ -889,13 +900,13 @@ header {
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #333;
   border-radius: 10px;
+  border: 2px solid #333;
   background: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: #fff;
   font-size: 15px;
   outline: none;
-  transition: border 0.3s ease, background 0.3s ease;
+  transition: border .3s ease, background .3s ease;
 }
 
 .form-group input:focus,
@@ -905,16 +916,16 @@ header {
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, orangered, black);
-  color: white;
-  border: none;
-  border-radius: 10px;
   padding: 14px;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  border: none;
+  background: linear-gradient(135deg, orangered, black);
+  color: #fff;
+  transition: transform .3s ease;
 }
 
 .submit-btn:hover {
@@ -922,70 +933,12 @@ header {
   transform: translateY(-3px);
 }
 
-/* Contact Styles Ended here*/
-/* =======================
-   RESPONSIVENESS
-======================= */
-@media (max-width: 992px) {
-  .services-inner {
-    height: 450px;
-    padding: 25px;
-  }
+/* -----------------------
+   RESPONSIVE MEDIA QUERIES (consolidated & ordered)
+   Breakpoints used: 1280, 1200, 1024, 992, 900, 768, 600, 576, 480
+   ----------------------- */
 
-  .section-title {
-    font-size: 32px;
-  }
-
-  .service i {
-    font-size: 30px;
-  }
-
-  .service h3 {
-    font-size: 14px;
-  }
-    .service-title{
-      font-size: 25px;
-      margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 600px) {
-  .services-inner {
-    height: 420px;
-    padding: 20px;
-  }
-
-  .service-list {
-    gap: 20px;
-  }
-
-  .service {
-    flex: 1 1 45%;
-    max-width: 45%;
-  }
-
-  .service i {
-    font-size: 28px;
-  }
-
-  .service h3 {
-    font-size: 13px;
-  }
-
-  .section-title {
-    font-size: 26px;
-  }
-}
-@media (max-width: 768px) {
-  .home {
-    background-position: 90% center;
-    /* shift more to right */
-    background-size: cover;
-    justify-content: center;
-    /* optional: center text if you prefer */
-    padding: 80px 6% 40px;
-  }
-}
+/* Large desktops and down adjustments */
 @media (max-width: 1280px) {
 
   .fees-section,
@@ -1009,6 +962,47 @@ header {
   }
 }
 
+/* Slightly smaller screens */
+@media (max-width: 1200px) {
+  .navbar a {
+    font-size: 16px;
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar a {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+
+/* Tablet / medium screens */
+@media (max-width: 992px) {
+  .services-inner {
+    height: 450px;
+    padding: 25px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .service i {
+    font-size: 30px;
+  }
+
+  .service h3 {
+    font-size: 14px;
+  }
+
+  .service-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Narrow tablets / large phones */
 @media (max-width: 900px) {
 
   .fees-section,
@@ -1040,7 +1034,110 @@ header {
   }
 }
 
+/* Mobile landscape & small tablets */
+@media (max-width: 768px) {
+
+  /* Layout switches */
+  .navbar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-icon .bx-menu {
+    margin-right: 0;
+  }
+
+  /* Home adjustments */
+  .home {
+    padding: 80px 6% 40px;
+    background-position: 90% center;
+  }
+
+  .home-content h1 {
+    font-size: 30px;
+  }
+
+  .home-content h3 {
+    font-size: 20px;
+  }
+
+  .home-content p {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 10px;
+  }
+
+  .social-media {
+    display: none;
+  }
+
+  /* Services responsive */
+  .service-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .service {
+    flex: 1 1 45%;
+    margin-bottom: 1rem;
+  }
+
+  .services-inner {
+    aspect-ratio: 4/3;
+  }
+
+  /* Tables and sections */
+  .fees-section,
+  .timing-section,
+  .packages-section {
+    padding: 60px 5%;
+  }
+
+  .fees-table,
+  .packages-table,
+  .time-table {
+    min-width: 600px;
+  }
+
+  /* Section title sizing */
+  .section-title {
+    font-size: 26px;
+  }
+}
+
+/* Small phones */
 @media (max-width: 600px) {
+  .services-inner {
+    height: 420px;
+    padding: 20px;
+  }
+
+  .service-list {
+    gap: 20px;
+  }
+
+  .service {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+
+  .service i {
+    font-size: 28px;
+  }
+
+  .service h3 {
+    font-size: 13px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
 
   .fees-section,
   .timing-section,
@@ -1078,88 +1175,11 @@ header {
   }
 }
 
-@media (max-width: 768px) {
-  .service-list {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .service {
-    flex: 1 1 45%;
-    margin-bottom: 1rem;
-  }
-
-  .services-inner {
-    aspect-ratio: 4 / 3;
-  }
-}
-
+/* Very small phones */
 @media (max-width: 576px) {
   .services-inner {
     width: 95%;
-    aspect-ratio: 1 / 1;
-  }
-}
-
-@media (max-width: 1200px) {
-  .navbar a {
-    font-size: 16px;
-    margin: 0 8px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .navbar a {
-    font-size: 14px;
-    margin: 0 5px;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    display: none;
-  }
-
-  .home-content h1 {
-    font-size: 30px;
-  }
-
-  .home-content h3 {
-    font-size: 20px;
-  }
-
-  .home-content p {
-    font-size: 12px;
-  }
-
-  .btn {
-    padding: 8px 15px;
-    font-size: 10px;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  .social-media {
-    display: none;
-  }
-
-  .footer-content,
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-  }
-.copyright{
-  text-align: center;
-}
-  .footer {
-    align-items: center;
-  }
-}
-@media (max-width: 768px) {
-  .home {
-    background-position: center right 25%;
+    aspect-ratio: 1/1;
   }
 }
 
@@ -1168,7 +1188,5 @@ header {
     background-position: center right 35%;
   }
 }
-* {
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+
+/* End of file */
