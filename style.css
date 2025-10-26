@@ -68,7 +68,10 @@ header {
   right: -260px;
   height: 100vh;
   width: 250px;
-  background-color: rgba(0, 0, 0, 0.85);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
+    url('./images/carbonfiberbg.png') repeat center center;
+  background-size: cover;
   backdrop-filter: blur(10px);
   box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -401,7 +404,7 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2
   background:
       linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)),
       url('./images/gym-texture-dark.jpg') center/cover no-repeat,
-      url('./images/carbonfiberbg.png') repeat;
+      url('./images/bgtexture2.png') repeat;
     background-blend-mode: multiply;
   color: white;
 }
