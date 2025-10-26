@@ -1188,12 +1188,19 @@ header {
     background-position: center right 35%;
   }
 }
+
 @media (max-width: 768px) {
-  footer {
+  .footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 25px 5%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
   }
 
   .footer-links {
