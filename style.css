@@ -324,43 +324,51 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(255, 69, 0, 0.2
 font-size: 2.5rem;
   color: orangered;
   margin-bottom: 50px;
-}
-.services-lists {
+}.services-lists {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5vw;
+  gap: 30px;
   width: 100%;
 }
 
 .service-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  /* centers all items */
   align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 40px;
+  /* equal spacing between items */
+  flex-wrap: wrap;
+  /* responsive wrapping */
 }
 
 .service {
   text-align: center;
+  flex: 1 1 140px;
+  /* minimum width for consistent alignment */
+  max-width: 160px;
   transition: transform 0.3s ease;
 }
 
 .service i {
-  font-size: clamp(20px, 3vw, 40px);
+  font-size: 36px;
   color: orangered;
-  margin-bottom: 0.5vw;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .service h3 {
-  font-size: clamp(0.7rem, 1.5vw, 1rem);
-  text-transform: uppercase;
+  font-size: 16px;
   color: #fff;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-/* Hover effect */
 .service:hover {
   transform: translateY(-5px);
 }
