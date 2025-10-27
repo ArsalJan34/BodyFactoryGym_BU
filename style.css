@@ -396,10 +396,17 @@ header {
    WHY JOIN SECTION
    ----------------------- */
 .why-join-section {
-  padding: 80px 20px;
+padding: 80px 20px;
   text-align: center;
   color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)), url('./images/gym-texture-dark.jpg') center/cover no-repeat, url('./images/bgtexture2.png') repeat;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)),
+    url('./images/gym-texture-dark.jpg'),
+    url('./images/bgtexture2.png');
+  background-repeat: repeat, repeat, repeat;
+  background-size: auto, 400px, 200px;
+  /* control texture size */
+  background-position: center, center, center;
   background-blend-mode: multiply;
 }
 
