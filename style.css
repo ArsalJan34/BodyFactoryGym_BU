@@ -405,7 +405,7 @@ padding: 80px 20px;
     url('./images/bgtexture2.png');
   background-repeat: repeat, repeat, repeat;
   background-size: auto, 400px, 200px;
-  /* control texture size */
+
   background-position: center, center, center;
   background-blend-mode: multiply;
 }
