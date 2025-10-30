@@ -1,8 +1,4 @@
 
-
-/* -----------------------
-   RESET & GLOBAL STYLES
-   ----------------------- */
 *,
 *::before,
 *::after {
@@ -330,8 +326,9 @@ header {
 
 
 .services-inner {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-        url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat;
+    /* background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('./images/young-fitness-man-studio_7502-5008.jpg') center/cover no-repeat; */
+        background-color: transparent;
 
   border: 3px solid orangered;
   border-radius: 20px;
@@ -399,15 +396,16 @@ header {
 padding: 80px 20px;
   text-align: center;
   color: white;
-  background:
+  /* background:
     linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 69, 0, 0.15)),
     url('./images/gym-texture-dark.jpg'),
-    url('./images/bgtexture2.png');
+    url('./images/bgtexture2.png'); */
+    /* background: transparent;
   background-repeat: repeat, repeat, repeat;
   background-size: auto, 400px, 200px;
 
   background-position: center, center, center;
-  background-blend-mode: multiply;
+  background-blend-mode: multiply; */
 }
 
 .why-join-section .section-title {
