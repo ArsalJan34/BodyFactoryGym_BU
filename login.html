@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="./firebase.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Body Factory</title>
+</head>
+
+<body class="login-body">
+  <div class="FormSection">
+    <h2>Log In Into Account</h2>
+    <!-- <input id="name" type="text" placeholder="Enter Name"> -->
+    <input id="email" type="email" placeholder="Enter Email">
+    <input id="password" type="password" placeholder="Enter Password">
+    <a href="signup.html">Dont Have An Account? </a>
+    <button onclick="login()" class="btn">Log In</button>
+  </div>
+  <script src="auth.js"></script>
+</body>
+
+</html>

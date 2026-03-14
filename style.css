@@ -15,7 +15,54 @@
 html {
   scroll-behavior: smooth;
 }
+/* Sign up page css */
+.signup-body{
+      color: white;
+        background-image: url("./images/carbonfiberbg.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+}
+.FormSection{
+  border: 2px solid orangered;
+  box-shadow: 0 0 15px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 60px;
+  gap: 10px;
 
+}
+.FormSection a{
+  color: white;
+}
+.FormSection input{
+  padding:20px 10px;
+  width: 100%;
+  background-color: black;
+  color: orangered;
+  border: none;
+}
+/* login page css */
+.login-body {
+  color: white;
+  background-image: url("./images/carbonfiberbg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 /* Base body styles and background */
 body {
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
