@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+      <script src="./firebase.js"></script>
+      <link rel="stylesheet" href="style.css">
+  <title>Body Factory</title>
+</head>
+<body>
+<div class="admin-container">
+
+  <h1>Contact Messages</h1>
+
+  <div id="messages" class="messages-container"></div>
+
+</div>
+<script>
+  const container = document.getElementById("messages")
+
+  db.ref("messages").on("child_added", (snap) => {
+
+    const data = snap.val()
+
+    const message = document.createElement("div")
+    message.classList.add("message")
+
+    message.innerHTML = `
+<h3>${data.name}</h3>
+<p>${data.email}</p>
+<div class="text">${data.message}</div>
+`
+
+    container.appendChild(message)
+
+  })
+</script>
+</body>
+</html>

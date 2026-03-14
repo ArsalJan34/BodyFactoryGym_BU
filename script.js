@@ -38,3 +38,26 @@ function sendWhatsApp(planName) {
       behavior: "smooth"
     });
   });
+auth.onAuthStateChanged((user) => {
+
+  const loginBtn = document.getElementById("loginBtn")
+  const signupBtn = document.getElementById("signupBtn")
+  const logoutBtn = document.getElementById("logoutBtn")
+
+  if(user){
+
+    console.log("User logged in:", user.email)
+
+    if(loginBtn) loginBtn.style.display = "none"
+    if(signupBtn) signupBtn.style.display = "none"
+    if(logoutBtn) logoutBtn.style.display = "block"
+
+  } else {
+
+    if(loginBtn) loginBtn.style.display = "block"
+    if(signupBtn) signupBtn.style.display = "block"
+    if(logoutBtn) logoutBtn.style.display = "none"
+
+  }
+
+})

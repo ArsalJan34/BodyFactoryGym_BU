@@ -63,6 +63,65 @@ html {
   justify-content: center;
   height: 100vh;
 }
+/* admin page css */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.admin-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.message:hover {
+  transform: translateY(-3px);
+}
+
+.message h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.message p {
+  margin: 4px 0;
+  color: #000000;
+}
+
+.message p:first-of-type {
+  font-weight: bold;
+  color: #000000;
+}
+
+.message .text {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f2f2f2;
+  border-radius: 6px;
+  color: black;
+}
 /* Base body styles and background */
 body {
   font-family: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
